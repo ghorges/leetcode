@@ -9,3 +9,5 @@ set paste
 ```
 set nopaste
 ```
+## c++ heap
+https://blog.csdn.net/u013317445/article/details/89680330
