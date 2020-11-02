@@ -1,5 +1,6 @@
-// 自己想的想法太简单了，还是得用0-1背包
+// 自己想的优先级队列超时了，但是题解有用优先级队列？？还是得用0-1背包
 // 处处0-1背包，万事先想0-1背包。。。
+// 也可以用一维数组，我看了题解就懂了
 class Solution {
 public:
     int lastStoneWeightII(vector<int>& stones) {
