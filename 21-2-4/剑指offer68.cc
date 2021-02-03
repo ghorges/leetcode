@@ -1,3 +1,4 @@
+// 之前写的太绕了，改进新版的
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -12,21 +13,30 @@ public:
     TreeNode* rec = NULL;
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
         if (root == NULL) return NULL;
-
         trans(root, p, q);
         return rec;
     }
-    int trans(TreeNode* root, TreeNode* p, TreeNode* q) {
-        if (root == NULL) return 0;
-        int i = trans(root->left, p, q);
-        int j = trans(root->right, p, q);
-        int sum = i + j;
-        if (root == p || root == q) {
-            sum += 1;
+    struct pairs {
+        bool p;
+        bool q;
+    };
+    pairs trans(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if (root == NULL) return pairs{};
+        pairs i = trans(root->left, p, q);
+        pairs j = trans(root->right, p, q);
+        pairs r;
+        r.p = i.p || j.p;
+        r.q = i.q || j.q;
+
+        if (root == p) {
+            r.p = true;
         }
-        if (sum >= 2 && rec == NULL) {
+        if (root == q) {
+            r.q = true;
+        }
+        if (rec == NULL && r.p == true && r.q == true) {
             rec = root;
         }
-        return sum;
+        return r;
     }
 };
