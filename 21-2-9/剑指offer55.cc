@@ -1,4 +1,5 @@
 // 不知道是不是理解偏差，这个和我理解的树不一样
+// 是我的问题了，注：树中结点的最大层次为树的深度或高度。
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
